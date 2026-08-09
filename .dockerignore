@@ -1,0 +1,53 @@
+# Contexto de build liviano: todo lo que no necesita la imagen.
+
+# Control de versiones
+.git
+.gitignore
+.github
+
+# Entornos virtuales
+.venv
+venv
+env
+ENV
+*.egg-info
+
+# Caches de Python y herramientas
+__pycache__
+**/__pycache__
+*.py[cod]
+*.pyo
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.coverage
+htmlcov
+
+# Artefactos generados: el contenedor los regenera y ademas outputs/ se monta
+# como volumen desde el host (docker-compose.yml).
+outputs/*.png
+outputs/*.csv
+outputs/*.json
+outputs/figuras_smoke
+
+# Documentacion y entregables: no los necesita la API en runtime y pesan
+# (docx, pptx y los PNG del prototipo).
+docs/*
+!docs/calibracion_parte1.json
+# Secretos: docker-compose los inyecta con env_file, no hacen falta en la imagen.
+# Si faltan, config/params.py usa los valores por defecto documentados.
+.env
+.env.*
+
+# Docker y editores
+Dockerfile
+docker-compose.yml
+.dockerignore
+.vscode
+.idea
+*.code-workspace
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,189 @@
+{
+  "generado_en": "2026-08-09T01:26:32",
+  "descripcion": "Auditoria de calibracion del generador sintetico de la Parte 2 contra el dataset real de la Parte 1. Porcentajes en puntos porcentuales (0-100).",
+  "dataset_real": "C:\\IA_Investigacion\\Deteccion_Corrupcion\\data\\processed\\dataset_obra_v4_model.parquet",
+  "n_obras": 326,
+  "n_columnas": 79,
+  "target": "y_riesgo_obra",
+  "mapeo_3clases": {
+    "0": 0,
+    "1": 0,
+    "2": 1,
+    "3": 2
+  },
+  "etiquetas_clase": [
+    "Bajo Riesgo",
+    "Med/Alt Riesgosa",
+    "Extrem. Riesgosa"
+  ],
+  "conteo_clase_reales": {
+    "Bajo Riesgo": 84,
+    "Med/Alt Riesgosa": 94,
+    "Extrem. Riesgosa": 148
+  },
+  "proporciones_clase_reales": {
+    "Bajo Riesgo": 25.77,
+    "Med/Alt Riesgosa": 28.83,
+    "Extrem. Riesgosa": 45.4
+  },
+  "fracciones_clase_reales": {
+    "Bajo Riesgo": 0.2577,
+    "Med/Alt Riesgosa": 0.2883,
+    "Extrem. Riesgosa": 0.454
+  },
+  "supuestos_generador": {
+    "clases_pct": {
+      "Bajo Riesgo": 24.2,
+      "Med/Alt Riesgosa": 27.6,
+      "Extrem. Riesgosa": 48.2
+    },
+    "nivel_gobierno_pct": {
+      "Nacional": 15.0,
+      "Regional": 30.0,
+      "Local": 55.0
+    },
+    "sectores": [
+      "Transporte",
+      "Salud",
+      "Educaci\u00f3n",
+      "Saneamiento",
+      "Energ\u00eda",
+      "Agricultura"
+    ],
+    "r_medio_sintetico": 0.5672,
+    "version_generador": "v1 (pre-recalibracion, baseline historico)",
+    "fuente": "data/generator.py ANTES de la orden 4. Desde la recalibracion, el generador lee 'fracciones_clase_reales' y 'contexto.nivel_gobierno.real_pct_normalizado' de este mismo archivo; estos supuestos v1 se conservan como termino de comparacion."
+  },
+  "desviaciones_clase_pp": {
+    "Bajo Riesgo": 1.57,
+    "Med/Alt Riesgosa": 1.23,
+    "Extrem. Riesgosa": -2.8
+  },
+  "desviacion_maxima_pp": 2.8,
+  "umbral_desviacion_pp": 2.0,
+  "veredicto": "recalibrar",
+  "ri_real": {
+    "modelo": "C:\\IA_Investigacion\\Deteccion_Corrupcion\\models\\obra_v4\\pipeline_rf_obra_3clases_final.pkl",
+    "n": 326,
+    "media": 0.4591,
+    "std": 0.3592,
+    "min": 0.0,
+    "q25": 0.1133,
+    "mediana": 0.375,
+    "q75": 0.84,
+    "max": 0.9967,
+    "media_generador": 0.5672,
+    "desviacion_media_vs_generador": -0.1081,
+    "advertencia": "predict_proba se eval\u00faa sobre las 326 obras, de las cuales 260 fueron de entrenamiento (test_size=0.2): los scores son parcialmente in-sample y su dispersi\u00f3n est\u00e1 subestimada respecto a un escenario out-of-sample."
+  },
+  "contexto": {
+    "nivel_gobierno": {
+      "real_conteo": {
+        "GOBIERNO NACIONAL": 195,
+        "GOBIERNO REGIONAL": 95,
+        "GOBIERNO LOCAL": 36
+      },
+      "real_pct": {
+        "GOBIERNO NACIONAL": 59.82,
+        "GOBIERNO REGIONAL": 29.14,
+        "GOBIERNO LOCAL": 11.04
+      },
+      "real_pct_normalizado": {
+        "Nacional": 59.82,
+        "Regional": 29.14,
+        "Local": 11.04
+      },
+      "supuesto_generador_pct": {
+        "Nacional": 15.0,
+        "Regional": 30.0,
+        "Local": 55.0
+      },
+      "desviaciones_pp": {
+        "Nacional": 44.82,
+        "Regional": -0.86,
+        "Local": -43.96
+      }
+    },
+    "sector": {
+      "real_conteo": {
+        "TRANSPORTE": 83,
+        "TRABAJO": 53,
+        "OTROS": 46,
+        "ENERGIA Y RECURSOS MINERALES": 30,
+        "SALUD": 21,
+        "SANEAMIENTO": 21,
+        "ORDEN P\u00daBLICO Y SEGURIDAD": 20,
+        "AGRARIA": 11,
+        "AGROPECUARIA": 7,
+        "PLANEAMIENTO; GESTI\u00d3N Y RESERVA DE CONTINGENCIA": 6,
+        "SALUD Y SANEAMIENTO": 6,
+        "DEFENSA Y SEGURIDAD NACIONAL": 5,
+        "PESCA": 4,
+        "EDUCACI\u00d3N": 3,
+        "ADMINISTRACION Y PLANEAMIENTO": 3,
+        "INDUSTRIA; COMERCIO Y SERVICIOS": 2,
+        "JUSTICIA": 2,
+        "ENERG\u00cdA": 2,
+        "COMUNICACIONES": 1
+      },
+      "real_pct": {
+        "TRANSPORTE": 25.46,
+        "TRABAJO": 16.26,
+        "OTROS": 14.11,
+        "ENERGIA Y RECURSOS MINERALES": 9.2,
+        "SALUD": 6.44,
+        "SANEAMIENTO": 6.44,
+        "ORDEN P\u00daBLICO Y SEGURIDAD": 6.13,
+        "AGRARIA": 3.37,
+        "AGROPECUARIA": 2.15,
+        "PLANEAMIENTO; GESTI\u00d3N Y RESERVA DE CONTINGENCIA": 1.84,
+        "SALUD Y SANEAMIENTO": 1.84,
+        "DEFENSA Y SEGURIDAD NACIONAL": 1.53,
+        "PESCA": 1.23,
+        "EDUCACI\u00d3N": 0.92,
+        "ADMINISTRACION Y PLANEAMIENTO": 0.92,
+        "INDUSTRIA; COMERCIO Y SERVICIOS": 0.61,
+        "JUSTICIA": 0.61,
+        "ENERG\u00cdA": 0.61,
+        "COMUNICACIONES": 0.31
+      },
+      "n_categorias_real": 19,
+      "categorias_generador": [
+        "Transporte",
+        "Salud",
+        "Educaci\u00f3n",
+        "Saneamiento",
+        "Energ\u00eda",
+        "Agricultura"
+      ],
+      "nota": "El dataset real usa 19 categor\u00edas de sector (taxonom\u00eda SEACE, p. ej. TRABAJO, OTROS, ORDEN P\u00daBLICO Y SEGURIDAD) frente a las 6 del generador, que adem\u00e1s las asigna de forma uniforme. Las taxonom\u00edas no son comparables una a una: el sector del dataset sint\u00e9tico es ilustrativo y no debe usarse para inferencia sectorial."
+    }
+  },
+  "macroregion": {
+    "es_sintetica": true,
+    "nota": "La columna 'macroregion' (1..5) NO existe en el dataset real: es una construcci\u00f3n de la Parte 2 para dar contenido a la restricci\u00f3n territorial R3. El dataset real solo tiene 'obra_ctx_departamento', dominado por obras MULTIDEPARTAMENTALES, de modo que no hay 5 macroregiones balanceadas ni una asignaci\u00f3n un\u00edvoca obra->macroregi\u00f3n. R3 debe leerse como un escenario institucional plausible, no como una restricci\u00f3n observada.",
+    "pct_multidepartamental": 65.03,
+    "n_departamentos_distintos": 23,
+    "departamentos_top10": {
+      "MULTIDEPARTAMENTAL": 212,
+      "LIMA": 17,
+      "CAJAMARCA": 11,
+      "PIURA": 11,
+      "ANCASH": 10,
+      "AREQUIPA": 8,
+      "LA LIBERTAD": 7,
+      "LORETO": 6,
+      "CUSCO": 5,
+      "HUANCAVELICA": 5
+    }
+  },
+  "ruta_salida": "C:\\IA_Investigacion\\ComputacionEvolutiva\\docs\\calibracion_parte1.json",
+  "conclusiones": [
+    "Clases de riesgo: 1 de 3 exceden el umbral de 2.0 pp (Extrem. Riesgosa -2.80 pp). Ajustar PROBS_CLASES en data/generator.py a las proporciones reales.",
+    "Nivel de gobierno: PROBS_NIVEL_GOBIERNO esta invertido respecto a la realidad (Nacional +44.82 pp, Local -43.96 pp). Afecta al atributo G (cobertura geografica), que el generador condiciona al nivel de gobierno.",
+    "Sector: taxonomias no comparables (19 categorias reales vs 6 sinteticas asignadas uniformemente); es una variable ilustrativa, no calibrada.",
+    "Macroregion y R3: sinteticas. 65.03% de las obras reales son MULTIDEPARTAMENTALES, por lo que no existen 5 macroregiones balanceadas.",
+    "Ri real (in-sample): media 0.4591 vs 0.5672 del generador (-0.1081); std real 0.3592.",
+    "Los atributos M, P, E, G y C del generador son supuestos propios de la Parte 2 (rangos INFOBRAS/SIAF/CGR): el dataset real no los contiene y no pueden validarse aqui."
+  ]
+}

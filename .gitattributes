@@ -1,0 +1,10 @@
+# Normaliza los finales de linea a LF en el repositorio, independientemente del
+# sistema operativo en que se trabaje.
+* text=auto eol=lf
+
+# Binarios: no tocar.
+*.png binary
+*.pkl binary
+*.parquet binary
+*.docx binary
+*.pptx binary

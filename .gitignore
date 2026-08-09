@@ -1,0 +1,39 @@
+# Documentacion interna y entregables (no se publican)
+docs/
+*.docx
+*.pptx
+
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Caches de Python y herramientas
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Artefactos generados: se regeneran con `python main.py --mode full`.
+# NOTA: data/ NO se ignora; data/calibracion_parte1.json se versiona a proposito
+# porque el generador lo necesita para ser reproducible.
+outputs/*.png
+outputs/*.csv
+outputs/*.json
+outputs/figuras_smoke/
+outputs/validate/
+
+# Configuracion local con valores propios (ver .env.example)
+.env
+
+# Editores y sistema operativo
+.vscode/
+.idea/
+*.code-workspace
+Thumbs.db
+desktop.ini
+.DS_Store

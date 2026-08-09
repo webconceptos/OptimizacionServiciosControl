@@ -1,0 +1,18 @@
+# Servicio de la API de la Parte 2 (Computacion Evolutiva).
+# Puerto 8001: no cambiar sin actualizar el Dockerfile, el .env (API_PORT) y el
+# dashboard de la Parte 1 (docs/API_SPEC.md).
+services:
+  ce-api:
+    build: .
+    image: ce-api:1.0.0
+    container_name: ce-api
+    ports:
+      - "8001:8001"
+    volumes:
+      # Las figuras y metricas que genera el contenedor quedan en el host.
+      - ./outputs:/app/outputs
+    env_file: .env
+    restart: unless-stopped
+    # En produccion dependeria del servicio de la Parte 1 (parte1-api, puerto
+    # 8000). Aqui no se declara: si esa API no responde, data/loader.py degrada al
+    # generador sintetico calibrado y la Parte 2 arranca igual.
