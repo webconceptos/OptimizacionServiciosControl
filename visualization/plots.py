@@ -142,7 +142,7 @@ def plot_convergencia(historial: Mapping[str, Sequence[float]], path: Union[str,
     _titulo(
         fig,
         "Curva de Convergencia - AG Binario (MCKP)",
-        "Tema 3 del curso CE UNI 2026",
+        "Fitness penalizado y fraccion factible por generacion",
     )
 
     ax1.plot(generaciones, mejor, color=COLORES["blue"], lw=2, label="Mejor fitness")
@@ -377,7 +377,7 @@ def plot_top_obras(
     _titulo(
         fig,
         f"Top {len(mejores)} Obras Priorizadas - Score de Impacto b(i)",
-        "Tema 1 del curso CE UNI 2026",
+        "Contribucion de cada obra a la funcion objetivo",
     )
 
     barras = ax.barh(
@@ -660,7 +660,7 @@ def plot_sensibilidad_parametros(
         partes.append(f"n_gen fijo = {n_gen}")
     if n_seeds is not None:
         partes.append(f"{n_seeds} semillas por configuracion")
-    subtitulo = "Tema 3 del curso CE UNI 2026 - barrido one-factor-at-a-time"
+    subtitulo = "Barrido one-factor-at-a-time"
     if partes:
         subtitulo += " | " + " | ".join(partes)
 
@@ -938,7 +938,7 @@ def plot_pareto(
     _titulo(
         fig,
         f"Frente de Pareto NSGA-II - {len(df)} Soluciones No Dominadas Factibles",
-        "Tema 10 del curso CE UNI 2026 | f1 = riesgo cubierto (max), f2 = costo (min)",
+        "f1 = riesgo cubierto (max), f2 = costo (min)",
     )
 
     ax.step(f2, f1, where="post", color=COLORES["teal"], lw=1.2, alpha=0.6, zorder=1)
@@ -1038,7 +1038,7 @@ def plot_esquemas(
         partes.append(f"pc={pc:.2f}")
     if pm is not None:
         partes.append(f"pm={pm:.4f}")
-    subtitulo = "Tema 4 del curso CE UNI 2026 - cota inferior de Goldberg"
+    subtitulo = "Cota inferior de Goldberg"
     if partes:
         subtitulo += " | " + " ".join(partes)
 
